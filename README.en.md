@@ -4,7 +4,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
 
 See more details
-[wiki](https://github.com/CRGMxhzzzzzz/Angelcrystal-webUI/wiki)
+[wiki](https://github.com/TheronVaux/Angelcrystal-webUI/wiki)
 
 ### Language
 
