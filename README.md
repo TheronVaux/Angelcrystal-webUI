@@ -1,7 +1,7 @@
 <h1 align="center">Angel Crystal</h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/CRGMxhzzzzzz/Angelcrystal-webUI?style=social)](https://github.com/CRGMxhzzzzzz/Angelcrystal-webUI/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
 
 更多详情见[wiki](https://github.com/CRGMxhzzzzzz/Angelcrystal-webUI/wiki)
 
