@@ -14,7 +14,7 @@ See more details
 
 ### Introduction
 
->This web project only provides the initial code, this code has a 'function library' for function expansion, the initial code is not perfect, I hope to understand more in the future, details can be found in the project wiki
+>This web project only provides the initial code, and there is a 'function library' in this code that can be left for functional expansion; This branch is mainly used as the design language for publishing project design and UI, I hope to understand it more in the future, details can be found in this project wiki
 
 In addition, you can clone this repository to make your own version and publish it!!
 
