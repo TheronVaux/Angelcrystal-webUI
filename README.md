@@ -1,4 +1,4 @@
-<h1 align="center">Angel Crystal</h1>
+<h1 align="center">AGUI/ACGT设计语言</h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
@@ -13,7 +13,7 @@
 
 ### 介绍
 
->这个网页项目仅提供最初始的代码，此代码内留有‘功能库’可留做功能拓展，该初始代码并不完善，望以后多多理解，详情可见本项目wiki
+>这个网页项目仅提供最初始的代码，此代码内留有‘功能库’可留做功能拓展；本分支主要作为公布项目设计及UI的设计语言，望以后多多理解，详情可见本项目wiki
 
 另外可克隆本仓库做出自己的版本并发布！！！
 
@@ -33,7 +33,7 @@
 会需要一个浏览器，然后获取构建代码
 
     构建代码：https://github.com/TheronVaux/Angelcrystal-webUI/tree/33a48a2fc72899ebf94b3c74a9f2faa7a8dbdb2e/HTML/build
-    ACGT：不公布
+    ACGT/AGUI：当前分支
 
 ---
 
