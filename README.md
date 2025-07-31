@@ -1,4 +1,4 @@
-<h1 align="center">AGUI/ACGT设计语言</h1>
+<h1 align="center">AGUI/ACGT 设计语言</h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
