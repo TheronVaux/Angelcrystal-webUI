@@ -34,7 +34,7 @@ Entrance：
 You'll need a browser and then get the build code
 
     Build：https://github.com/TheronVaux/Angelcrystal-webUI/tree/33a48a2fc72899ebf94b3c74a9f2faa7a8dbdb2e/HTML/build
-    ACGT/AGUI：https://github.com/TheronVaux/Angelcrystal-webUI/blob/d1e9186c2ec1a267b02f25c14502935ffbc8f9e7/README.md
+    ACGT/AGUI：https://github.com/TheronVaux/Angelcrystal-webUI/tree/fix_ACGT%2FAGUI/HTML%2Fbuild
 
 ---
 
