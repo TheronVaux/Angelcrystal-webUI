@@ -33,7 +33,7 @@
 会需要一个浏览器，然后获取构建代码
 
     构建代码：https://github.com/TheronVaux/Angelcrystal-webUI/tree/33a48a2fc72899ebf94b3c74a9f2faa7a8dbdb2e/HTML/build
-    ACGT/AGUI：当前分支
+    ACGT/AGUI：https://github.com/TheronVaux/Angelcrystal-webUI/tree/fix_ACGT%2FAGUI/HTML%2Fbuild
 
 ---
 
