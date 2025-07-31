@@ -1,4 +1,4 @@
-<h1 align="center">Angel Crystal</h1>
+<h1 align="center">ACGT/AGUI Design language</h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
@@ -34,7 +34,7 @@ Entrance：
 You'll need a browser and then get the build code
 
     Build：https://github.com/TheronVaux/Angelcrystal-webUI/tree/33a48a2fc72899ebf94b3c74a9f2faa7a8dbdb2e/HTML/build
-    ACGT：Not publicized
+    ACGT：https://github.com/TheronVaux/Angelcrystal-webUI/tree/fix_ACGT%2FAGUI/HTML%2Fbuild
 
 ---
 
