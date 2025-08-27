@@ -28,7 +28,7 @@
 
 实例：
 
-    语言 
+    语言ID
     <script>
         // 语言包定义
         const langPack = {
@@ -209,7 +209,8 @@
                 'update.log.5': '• Added multi-language support'
             }
         };
-    函数库 
+
+    函数库ID
         const defaultFeatures = [
             { name: "01", link: "javascript:alert('01')" },
             { name: "咖啡厅链接", link: "https://pd.qq.com/s/a6g5xr5bg?b=5" },
