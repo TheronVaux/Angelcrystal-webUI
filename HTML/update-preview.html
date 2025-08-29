@@ -50,11 +50,14 @@
             min-height: 100vh;
             overflow: hidden;
             transition: background 0.5s ease;
+            background-image: var(--custom-bg, none);
+            background-size: cover;
+            background-position: center;
         }
         
         body {
-    overflow-y: auto;
-    scroll-behavior: smooth;
+            overflow-y: auto;
+            scroll-behavior: smooth;
         }
         
         /* 粒子背景效果 */
@@ -63,6 +66,7 @@
             width: 100%;
             height: 100%;
             z-index: 0;
+            pointer-events: none;
         }
 
         .login-container {
@@ -151,7 +155,7 @@
         }
 
         .nav-button.active {
-            background: rgba(var(--primary-color-rgb), 0.2);
+            background: rgba(var(--primary-color-rgb), 0.1);
             border-color: var(--primary-color);
             box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.2);
         }
@@ -203,7 +207,7 @@
         }
 
         .page-content::-webkit-scrollbar {
-        width: 8px;
+            width: 8px;
         }
 
         .page-content::-webkit-scrollbar-track {
@@ -636,6 +640,75 @@
             margin-top: 10px;
         }
         
+        /* 背景选择器样式 */
+        .background-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .background-option {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .background-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .background-option.active {
+            border: 2px solid var(--primary-color);
+            background: rgba(var(--primary-color-rgb), 0.1);
+            box-shadow: 0 0 15px rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .background-preview {
+            width: 100%;
+            height: 100px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .default-preview {
+            background: var(--bg-color);
+        }
+        
+        .space-preview {
+            background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cyber-preview {
+            background-image: url('https://images.unsplash.com/photo-1516245834216-c4e5e3aff77e?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .neon-preview {
+            background-image: url('https://images.unsplash.com/photo-1550684844-c0e555ac3b62?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .background-name {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
         /* 关于页面样式 */
         .about-content {
             padding: 20px;
@@ -737,7 +810,7 @@
     <!-- 登录界面 -->
     <div class="login-container" id="loginPanel">
         <div class="hologram-line"></div>
-        <h2 style="text-align: center; margin-bottom: 30px;" data-lang-key="login.title">AngelCrystal 登录</h2>
+        <h2 style="text-align: center; margin-bottom: 30px;" data-lang-key="login.title">AngelCrystal</h2>
         <div class="input-field">
             <label data-lang-key="login.adminId">账号ID:</label>
             <input type="text" id="adminId" class="neon-input" placeholder="输入管理员ID" data-lang-key-placeholder="login.adminPlaceholder">
@@ -772,12 +845,10 @@
             <h3 style="text-align: center; margin-bottom: 30px;" data-lang-key="intro.title">AngelCrystal</h3>
             <div class="version-info">
                 <p style="margin-bottom: 10px; line-height: 1.6;">
-                    <strong data-lang-key="intro.version">释放版本：1.34.100.02</strong><br>
+                    <strong data-lang-key="intro.version">释放版本：1.35.112082.02</strong><br>
                     <strong data-lang-key="intro.ftVersion">TimonDessau</strong>
                 </p>
-                <p style="line-height: 1.6;" data-lang-key="intro.note">
-                    该代码仅供参考，如果有意见请在Gitee或Github中提出问题
-                </p>
+                <p style="line-height: 1.6;" data-lang-key="intro.note">该代码仅供参考，如果有意见请在Gitee或Github中提出问题</p>
             </div>
             
             <div class="system-update">
@@ -800,9 +871,9 @@
                 <!-- 功能库图标将在这里动态生成 -->
             </div>
             <div style="margin-top: 30px; text-align: center;">
-                <p data-lang-key="features.github">访问开发者GitHub仓库获取更多版本:</p>
-                <a href="https://www.github.com/TimonDessauQwQ/" class="github-link" target="_blank">
-                    https://www.github.com/TheronVaux/AngelCrystalWebUI/
+                <p data-lang-key="features.github">访问开发者GitHub仓库获取更多资源:</p>
+                <a href="https://www.github.com/TheronVaux/Angelcrystal-webUI/" class="github-link" target="_blank">
+                    https://www.github.com/TheronVaux/Angelcrystal-webUI/
                 </a>
             </div>
         </div>
@@ -884,33 +955,33 @@
             
             <div class="version-info">
                 <p style="margin-bottom: 10px; line-height: 1.6;">
-                    <strong data-lang-key="about.version">当前版本：1.34.100.02</strong><br>
+                    <strong data-lang-key="about.version">当前版本：1.35.112082.02</strong><br>
                     <span data-lang-key="about.desc">AngelCrystal 是一个网页UI。</span>
                 </p>
             </div>
             
             <div class="about-content">
-                <h4 style="margin-bottom: 20px; color: var(--secondary-color);" data-lang-key="about.developers">开发人员</h4>
+                <h4 style="margin-bottom: 20px; color: var(--secondary-color);" data-lang-key="about.developers">开发团队</h4>
                 
                 <div class="developer-card">
                     <h4>TheronVaux</h4>
-                    <p data-lang-key="about.dev1">主要开发者</p>
+                    <p data-lang-key="about.dev1">UI设计，负责核心模块开发和系统集成</p>
                 </div>
                 
                 <div class="developer-card">
                     <h4>InfinitySKY</h4>
-                    <p data-lang-key="about.dev2">灵感及部分代码提供</p>
+                    <p data-lang-key="about.dev2">UI/UX设计师，负责用户界面和交互体验</p>
                 </div>
                 
                 <div class="developer-card">
                     <h4>SHENGYUE</h4>
-                    <p data-lang-key="about.dev3">项目金主</p>
+                    <p data-lang-key="about.dev3">后端开发工程师，fw</p>
                 </div>
                 
                 <div class="system-update" style="margin-top: 30px;">
                     <h4 data-lang-key="about.license">许可协议</h4>
                     <p style="margin-top: 10px;" data-lang-key="about.licenseText">
-                        AngelCrystal 遵循 MIT 开源协议。您可以自由使用、修改和分发本软件，但必须保留原始版权声明。
+                        AngelCrystal 遵循 MIT 开源协议。您可以自由使用、修改和分发本软件，但必须保留原始版权声明。 
                     </p>
                 </div>
             </div>
@@ -943,6 +1014,39 @@
                     </div>
                     <div class="theme-name" data-lang-key="settings.redTheme">红色主题</div>
                     <p style="margin-top: 10px; font-size: 0.9em;" data-lang-key="settings.redDesc">暗黑Angel风格</p>
+                </div>
+            </div>
+            
+            <!-- 背景选择区域 -->
+            <h4 style="margin: 30px 0 15px; color: var(--primary-color);" data-lang-key="settings.background">背景设置</h4>
+            <div class="background-selector" id="backgroundSelector">
+                <div class="background-option active" onclick="switchBackground('none')" id="defaultBgOption">
+                    <div class="background-preview default-preview">
+                        <div style="color: var(--primary-color);" data-lang-key="settings.defaultBg">默认背景</div>
+                    </div>
+                    <div class="background-name" data-lang-key="settings.defaultBg">默认背景</div>
+                </div>
+                
+                <div class="background-option" onclick="switchBackground('url(https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1350&q=80)')" id="spaceBgOption">
+                    <div class="background-preview space-preview">
+                        <div style="color: white; text-shadow: 0 0 5px black;" data-lang-key="settings.spaceBg">星空背景</div>
+                    </div>
+                    <div class="background-name" data-lang-key="settings.spaceBg">星空背景</div>
+                </div>
+                
+                <div class="background-option" onclick="switchBackground('url(https://images.unsplash.com/photo-1516245834216-c4e5e3aff77e?auto=format&fit=crop&w=1350&q=80)')" id="cyberBgOption">
+                    <div class="background-preview cyber-preview">
+                        <div style="color: white; text-shadow: 0 0 5px black;" data-lang-key="settings.cyberBg">赛博背景</div>
+                    </div>
+                    <div class="background-name" data-lang-key="settings.cyberBg">赛博背景</div>
+                </div>
+                
+                <div class="background-option" onclick="document.getElementById('bgUpload').click()" id="customBgOption">
+                    <div class="background-preview" style="border: 2px dashed var(--primary-color); display: flex; align-items: center; justify-content: center;">
+                        <span data-lang-key="settings.uploadBg">上传背景</span>
+                        <input type="file" id="bgUpload" accept="image/*" style="display: none;" onchange="uploadBackground(event)">
+                    </div>
+                    <div class="background-name" data-lang-key="settings.uploadBg">上传背景</div>
                 </div>
             </div>
             
@@ -1015,7 +1119,7 @@
                 'nav.about': '关于',
                 'nav.settings': '设置',
                 'intro.title': 'AngelCrystal',
-                'intro.version': '释放版本：1.34.100',
+                'intro.version': '释放版本：1.35.112082',
                 'intro.ftVersion': 'ACGT版本：1.0.0',
                 'intro.note': '该代码仅供参考，如果有意见请在Gitee或Github中提出问题',
                 'intro.updates': '系统更新:',
@@ -1030,7 +1134,8 @@
                 'logs.system': '系统',
                 'log.1': '系统初始化完成，所有模块运行正常。',
                 'log.2': '安全检查通过，未发现威胁。',
-                'log.3': '用户界面更新至v1.34.100版本。',
+                'log.3': '用户界面更新至v1.35.0版本。',
+                'log.bgChanged': '背景已更改为: ',
                 'settings.title': '系统设置',
                 'settings.theme': '当前主题：',
                 'settings.themeDesc': '选择您偏好的界面主题',
@@ -1039,6 +1144,11 @@
                 'settings.blueDesc': '默认Sapphire风格',
                 'settings.redTheme': '红色主题',
                 'settings.redDesc': '暗黑Angel风格',
+                'settings.background': '背景设置',
+                'settings.defaultBg': '默认背景',
+                'settings.spaceBg': '星空背景',
+                'settings.cyberBg': '赛博背景',
+                'settings.uploadBg': '上传背景',
                 'settings.language': '语言选择',
                 'settings.zhDesc': '系统默认语言',
                 'settings.enDesc': '英语',
@@ -1065,12 +1175,12 @@
                 'feature.resetSuccess': '功能库配置已重置为默认设置！',
                 'lang.switchLog': '系统语言已切换至: ',
                 'about.title': '关于 AngelCrystal',
-                'about.version': '当前版本：1.34.100.02',
+                'about.version': '当前版本：1.35.112082.02',
                 'about.desc': 'AngelCrystal 是一个网页UI，专为高效管理和控制设计。',
                 'about.developers': '开发团队',
                 'about.dev1': 'UI设计，负责核心模块开发和系统集成',
                 'about.dev2': 'UI/UX设计师，负责用户界面和交互体验',
-                'about.dev3': '后端开发工程师，没啥用',
+                'about.dev3': '后端开发工程师，fw',
                 'about.license': '许可协议',
                 'about.licenseText': 'AngelCrystal 遵循 MIT 开源协议。您可以自由使用、修改和分发本软件，但必须保留原始版权声明。',
                 'update.log.1': '• 新增"关于"页面',
@@ -1097,7 +1207,7 @@
                 'nav.about': 'About',
                 'nav.settings': 'Settings',
                 'intro.title': '',
-                'intro.version': 'Release Version: 1.34.100',
+                'intro.version': 'Release Version: 1.35.112082',
                 'intro.ftVersion': 'AGUI Version: 1.0.0',
                 'intro.note': 'This code is for reference only. Please submit issues on Gitee or Github',
                 'intro.updates': 'System Updates:',
@@ -1112,7 +1222,8 @@
                 'logs.system': 'System',
                 'log.1': 'System initialization completed. All modules running normally.',
                 'log.2': 'Security check passed. No threats found.',
-                'log.3': 'User interface updated to v1.34.100.',
+                'log.3': 'User interface updated to v1.35.0',
+                'log.bgChanged': 'Background changed to: ',
                 'settings.title': 'System Settings',
                 'settings.theme': 'Current Theme:',
                 'settings.themeDesc': 'Select your preferred interface theme',
@@ -1121,6 +1232,11 @@
                 'settings.blueDesc': 'Default tech sapphire style',
                 'settings.redTheme': 'Red Theme',
                 'settings.redDesc': 'Dark angel style',
+                'settings.background': 'Background Settings',
+                'settings.defaultBg': 'Default Background',
+                'settings.spaceBg': 'Space Background',
+                'settings.cyberBg': 'Cyber Background',
+                'settings.uploadBg': 'Upload Background',
                 'settings.language': 'Language Selection',
                 'settings.zhDesc': 'System default language',
                 'settings.enDesc': 'English language',
@@ -1147,7 +1263,7 @@
                 'feature.resetSuccess': 'Feature configuration reset to default!',
                 'lang.switchLog': 'System language switched to: ',
                 'about.title': 'About AngelCrystal',
-                'about.version': 'Current Version: 1.34.100.02',
+                'about.version': 'Current Version: 1.35.112082.02',
                 'about.desc': 'AngelCrystal is an advanced management system designed for efficient control and administration.',
                 'about.developers': 'Development Team',
                 'about.dev1': 'UI Designer, responsible for core module development and system integration',
@@ -1203,6 +1319,7 @@
                 startClock();
                 loadFeatureConfig();
                 loadLanguage();
+                loadBackground();
                 renderFeatureGrid();
             } else {
                 btn.innerHTML = langPack[currentLang]['login.accessDenied'];
@@ -1272,20 +1389,7 @@
             const langName = lang === 'zh-CN' ? '简体中文' : 'English';
             const logContent = langPack[currentLang]['lang.switchLog'] + langName;
             
-            const logEntry = document.createElement('div');
-            logEntry.className = 'log-entry';
-            logEntry.innerHTML = `
-                <div class="log-header">
-                    <strong>${langPack[currentLang]['logs.system']}</strong>
-                    <span class="log-time">${timeString}</span>
-                </div>
-                <div class="log-content">
-                    ${logContent}
-                </div>
-                <div class="delete-log" onclick="deleteLog(event)">×</div>
-            `;
-            
-            document.getElementById('logList').prepend(logEntry);
+            addLogEntry(timeString, logContent);
         }
 
         // 页面切换功能
@@ -1371,6 +1475,15 @@
         // 灰色粒子背景
         function initParticles() {
             const canvas = document.getElementById('particles');
+            const body = document.body;
+            
+            // 检查是否有自定义背景
+            if (body.style.backgroundImage && body.style.backgroundImage !== 'none') {
+                canvas.style.display = 'none';
+                return;
+            }
+            
+            canvas.style.display = 'block';
             const ctx = canvas.getContext('2d');
             
             canvas.width = window.innerWidth;
@@ -1422,6 +1535,27 @@
             });
         }
         
+        // 加载保存的背景设置
+        function loadBackground() {
+            const savedBackground = localStorage.getItem('customBackground');
+            if (savedBackground) {
+                document.body.style.backgroundImage = savedBackground;
+                // 找到对应的背景选项并激活
+                document.querySelectorAll('.background-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                if (savedBackground === 'none') {
+                    document.getElementById('defaultBgOption').classList.add('active');
+                } else if (savedBackground.includes('space')) {
+                    document.getElementById('spaceBgOption').classList.add('active');
+                } else if (savedBackground.includes('cyber')) {
+                    document.getElementById('cyberBgOption').classList.add('active');
+                } else {
+                    document.getElementById('customBgOption').classList.add('active');
+                }
+            }
+        }
+        
         // 日志功能
         function addLog() {
             const logInput = document.getElementById('logInput');
@@ -1435,20 +1569,8 @@
             const now = new Date();
             const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
             
-            const logEntry = document.createElement('div');
-            logEntry.className = 'log-entry';
-            logEntry.innerHTML = `
-                <div class="log-header">
-                    <strong>${langPack[currentLang]['logs.admin']}</strong>
-                    <span class="log-time">${timeString}</span>
-                </div>
-                <div class="log-content">
-                    ${logContent}
-                </div>
-                <div class="delete-log" onclick="deleteLog(event)">×</div>
-            `;
+            addLogEntry(timeString, logContent);
             
-            document.getElementById('logList').prepend(logEntry);
             logInput.value = '';
             
             // 添加成功动画
@@ -1458,6 +1580,23 @@
                 logInput.style.borderColor = 'rgba(var(--primary-color-rgb), 0.2)';
                 logInput.style.boxShadow = 'none';
             }, 1000);
+        }
+        
+        function addLogEntry(time, content) {
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `
+                <div class="log-header">
+                    <strong>${langPack[currentLang]['logs.admin']}</strong>
+                    <span class="log-time">${time}</span>
+                </div>
+                <div class="log-content">
+                    ${content}
+                </div>
+                <div class="delete-log" onclick="deleteLog(event)">×</div>
+            `;
+            
+            document.getElementById('logList').prepend(logEntry);
         }
         
         function deleteLog(event) {
@@ -1492,20 +1631,7 @@
                 const themeName = langPack[currentLang]['settings.redTheme'];
                 const logContent = langPack[currentLang]['log.3'].replace('v1.4.0', themeName);
                 
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log-entry';
-                logEntry.innerHTML = `
-                    <div class="log-header">
-                        <strong>${langPack[currentLang]['logs.system']}</strong>
-                        <span class="log-time">${timeString}</span>
-                    </div>
-                    <div class="log-content">
-                        ${langPack[currentLang]['log.3'].replace('v1.4.0', themeName)}
-                    </div>
-                    <div class="delete-log" onclick="deleteLog(event)">×</div>
-                `;
-                
-                document.getElementById('logList').prepend(logEntry);
+                addLogEntry(timeString, logContent);
                 
             } else {
                 document.body.classList.remove('red-theme');
@@ -1520,20 +1646,65 @@
                 const themeName = langPack[currentLang]['settings.blueTheme'];
                 const logContent = langPack[currentLang]['log.3'].replace('v1.4.0', themeName);
                 
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log-entry';
-                logEntry.innerHTML = `
-                    <div class="log-header">
-                        <strong>${langPack[currentLang]['logs.system']}</strong>
-                        <span class="log-time">${timeString}</span>
-                    </div>
-                    <div class="log-content">
-                        ${langPack[currentLang]['log.3'].replace('v1.4.0', themeName)}
-                    </div>
-                    <div class="delete-log" onclick="deleteLog(event)">×</div>
-                `;
+                addLogEntry(timeString, logContent);
+            }
+        }
+        
+        // 背景切换功能
+        function switchBackground(url) {
+            if (url === 'none') {
+                document.body.style.backgroundImage = '';
+                localStorage.removeItem('customBackground');
+                document.getElementById('defaultBgOption').classList.add('active');
+                document.querySelectorAll('.background-option').forEach(opt => {
+                    if (opt !== document.getElementById('defaultBgOption')) {
+                        opt.classList.remove('active');
+                    }
+                });
+            } else {
+                document.body.style.backgroundImage = url;
+                localStorage.setItem('customBackground', url);
+                // 更新活动状态
+                document.querySelectorAll('.background-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                if (url.includes('space')) {
+                    document.getElementById('spaceBgOption').classList.add('active');
+                } else if (url.includes('cyber')) {
+                    document.getElementById('cyberBgOption').classList.add('active');
+                } else {
+                    document.getElementById('customBgOption').classList.add('active');
+                }
+            }
+            
+            // 更新粒子显示
+            initParticles();
+            
+            // 添加日志
+            const now = new Date();
+            const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            
+            const bgName = url === 'none' ? 
+                langPack[currentLang]['settings.defaultBg'] : 
+                url.includes('space') ? 
+                langPack[currentLang]['settings.spaceBg'] : 
+                url.includes('cyber') ? 
+                langPack[currentLang]['settings.cyberBg'] : 
+                langPack[currentLang]['settings.uploadBg'];
                 
-                document.getElementById('logList').prepend(logEntry);
+            const logContent = langPack[currentLang]['log.bgChanged'] + bgName;
+            addLogEntry(timeString, logContent);
+        }
+        
+        function uploadBackground(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const url = e.target.result;
+                    switchBackground(`url(${url})`);
+                };
+                reader.readAsDataURL(file);
             }
         }
         
@@ -1607,20 +1778,8 @@
             const now = new Date();
             const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
             
-            const logEntry = document.createElement('div');
-            logEntry.className = 'log-entry';
-            logEntry.innerHTML = `
-                <div class="log-header">
-                    <strong>${langPack[currentLang]['logs.system']}</strong>
-                    <span class="log-time">${timeString}</span>
-                </div>
-                <div class="log-content">
-                    ${langPack[currentLang]['log.3'].replace('v1.4.0', langPack[currentLang]['feature.saveSuccess'])}
-                </div>
-                <div class="delete-log" onclick="deleteLog(event)">×</div>
-            `;
-            
-            document.getElementById('logList').prepend(logEntry);
+            const logContent = langPack[currentLang]['log.3'].replace('v1.4.0', langPack[currentLang]['feature.saveSuccess']);
+            addLogEntry(timeString, logContent);
         }
         
         function resetFeatureConfig() {
@@ -1635,20 +1794,8 @@
                 const now = new Date();
                 const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
                 
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log-entry';
-                logEntry.innerHTML = `
-                    <div class="log-header">
-                        <strong>${langPack[currentLang]['logs.system']}</strong>
-                        <span class="log-time">${timeString}</span>
-                    </div>
-                    <div class="log-content">
-                        ${langPack[currentLang]['feature.resetSuccess']}
-                    </div>
-                    <div class="delete-log" onclick="deleteLog(event)">×</div>
-                `;
-                
-                document.getElementById('logList').prepend(logEntry);
+                const logContent = langPack[currentLang]['feature.resetSuccess'];
+                addLogEntry(timeString, logContent);
             }
         }
         
