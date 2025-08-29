@@ -801,6 +801,152 @@
         .update-log-entry .log-content {
             color: var(--warning-color);
         }
+        
+        /* 新添加的主页样式 */
+        .home-clock {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .clock-time {
+            font-size: 6em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .clock-date {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .greeting {
+            font-size: 2em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.3);
+        }
+        
+        .system-status {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .status-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+            border-radius: 8px;
+            min-width: 150px;
+        }
+        
+        .status-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: var(--secondary-color);
+        }
+        
+        .status-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        /* 终端样式 */
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+            border-radius: 5px;
+            height: 400px;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .terminal-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .terminal-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .terminal-controls {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .terminal-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .terminal-control.close {
+            background-color: #ff5f56;
+        }
+        
+        .terminal-control.minimize {
+            background-color: #ffbd2e;
+        }
+        
+        .terminal-control.maximize {
+            background-color: #27c93f;
+        }
+        
+        .terminal-body {
+            padding: 15px;
+            height: calc(100% - 38px);
+            overflow-y: auto;
+        }
+        
+        .terminal-line {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .terminal-prompt {
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+        
+        .terminal-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            width: calc(100% - 50px);
+            caret-color: var(--primary-color);
+        }
+        
+        .terminal-command {
+            color: var(--primary-color);
+        }
+        
+        .terminal-output {
+            color: #cccccc;
+            margin-top: 5px;
+            white-space: pre-wrap;
+        }
+        
+        .terminal-error {
+            color: #ff6b6b;
+        }
+        
+        .terminal-success {
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -835,32 +981,35 @@
                 <button class="nav-button active" onclick="switchPage('intro')" data-lang-key="nav.home">主页</button>
                 <button class="nav-button" onclick="switchPage('features')" data-lang-key="nav.features">功能库</button>
                 <button class="nav-button" onclick="switchPage('logs')" data-lang-key="nav.logs">日志</button>
-                <button class="nav-button" onclick="switchPage('about')" data-lang-key="nav.about">关于</button>
+                <button class="nav-button" onclick="switchPage('about')" data-lang-key="nav.about">终端</button>
                 <button class="nav-button" onclick="switchPage('settings')" data-lang-key="nav.settings">设置</button>
             </div>
         </div>
         
-        <!-- 介绍页面 -->
+        <!-- 介绍页面 - 重新设计的主页 -->
         <div class="page-content" id="introPage">
-            <h3 style="text-align: center; margin-bottom: 30px;" data-lang-key="intro.title">AngelCrystal</h3>
-            <div class="version-info">
-                <p style="margin-bottom: 10px; line-height: 1.6;">
-                    <strong data-lang-key="intro.version">释放版本：1.35.112082.02</strong><br>
-                    <strong data-lang-key="intro.ftVersion">TimonDessau</strong>
-                </p>
-                <p style="line-height: 1.6;" data-lang-key="intro.note">该代码仅供参考，如果有意见请在Gitee或Github中提出问题</p>
+            <div class="home-clock">
+                <div class="clock-time" id="bigClock">00:00:00</div>
+                <div class="clock-date" id="bigDate">2023年11月15日 星期三</div>
+                <div class="greeting" id="greeting">早上好，管理员</div>
             </div>
             
-            <div class="system-update">
-                <h4 data-lang-key="intro.updates">更新内容:</h4>
-                <p style="margin-top: 10px;" data-lang-key="update.1">• 新增主题切换功能（蓝色/红色主题）</p>
-                <p data-lang-key="update.2">• 添加设置页面用于主题管理</p>
-                <p data-lang-key="update.3">• 优化UI界面和交互体验</p>
-                <p data-lang-key="update.4">• 新增功能库链接自定义配置功能</p>
-                <p data-lang-key="update.5">• 新增多语言支持（中文/英文）</p>
-                <p data-lang-key="update.6">• 新增"关于"界面展示开发者信息</p>
-                <p data-lang-key="update.7">• 功能库扩展至16个功能模块</p>
-                <p data-lang-key="update.8">• 日志系统新增更新日志分类</p>
+            <div class="system-status">
+                <div class="status-item">
+                    <div class="status-label">天使水晶</div>
+                    <div class="status-value">在线</div>
+                    <div class="status-desc">TheronVaux</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Midsummer</div>
+                    <div class="status-value">old</div>
+                    <div class="status-desc">TimonDessau</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">SHENGYUE</div>
+                    <div class="status-value">old</div>
+                    <div class="status-desc">CRGMxhzzzzzZ</div>
+                </div>
             </div>
         </div>
         
@@ -949,40 +1098,50 @@
             </div>
         </div>
         
-        <!-- 关于页面 -->
+        <!-- 关于页面 - 替换为终端样式 -->
         <div class="page-content" id="aboutPage" style="display: none;">
-            <h3 class="section-title" data-lang-key="about.title">关于 AngelCrystal</h3>
+            <h3 class="section-title" data-lang-key="about.title">系统终端</h3>
             
-            <div class="version-info">
-                <p style="margin-bottom: 10px; line-height: 1.6;">
-                    <strong data-lang-key="about.version">当前版本：1.35.112082.02</strong><br>
-                    <span data-lang-key="about.desc">AngelCrystal 是一个网页UI。</span>
-                </p>
-            </div>
-            
-            <div class="about-content">
-                <h4 style="margin-bottom: 20px; color: var(--secondary-color);" data-lang-key="about.developers">开发团队</h4>
-                
-                <div class="developer-card">
-                    <h4>TheronVaux</h4>
-                    <p data-lang-key="about.dev1">UI设计，负责核心模块开发和系统集成</p>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-title">AngelCrystal Terminal v1.0</div>
+                    <div class="terminal-controls">
+                        <div class="terminal-control close"></div>
+                        <div class="terminal-control minimize"></div>
+                        <div class="terminal-control maximize"></div>
+                    </div>
                 </div>
-                
-                <div class="developer-card">
-                    <h4>InfinitySKY</h4>
-                    <p data-lang-key="about.dev2">UI/UX设计师，负责用户界面和交互体验</p>
-                </div>
-                
-                <div class="developer-card">
-                    <h4>SHENGYUE</h4>
-                    <p data-lang-key="about.dev3">后端开发工程师，fw</p>
-                </div>
-                
-                <div class="system-update" style="margin-top: 30px;">
-                    <h4 data-lang-key="about.license">许可协议</h4>
-                    <p style="margin-top: 10px;" data-lang-key="about.licenseText">
-                        AngelCrystal 遵循 MIT 开源协议。您可以自由使用、修改和分发本软件，但必须保留原始版权声明。 
-                    </p>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">admin@angelcrystal:~$</span>
+                        <span class="terminal-command">welcome</span>
+                    </div>
+                    <div class="terminal-output">
+    █████╗ ███╗   ██╗ ██████╗ ███████╗██╗      ██████╗ ██████╗ ██████╗ ██╗   ██╗███████╗████████╗ █████╗ ██╗     
+    ██╔══██╗████╗  ██║██╔════╝ ██╔════╝██║     ██╔════╝██╔═══██╗██╔══██╗╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔══██╗██║     
+    ███████║██╔██╗ ██║██║  ███╗█████╗  ██║     ██║     ██║   ██║██████╔╝ ╚████╔╝ █████╗     ██║   ███████║██║     
+    ██╔══██║██║╚██╗██║██║   ██║██╔══╝  ██║     ██║     ██║   ██║██╔══██╗  ╚██╔╝  ██╔══╝     ██║   ██╔══██║██║     
+    ██║  ██║██║ ╚████║╚██████╔╝███████╗███████╗╚██████╗╚██████╔╝██║  ██║   ██║   ███████╗   ██║   ██║  ██║███████╗
+    ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╗   ╚═╝   ╚═╝  ╚═╝╚══════╝
+                                                                                        v1.52.4001.26
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">admin@angelcrystal:~$</span>
+                        <span class="terminal-command">help</span>
+                    </div>
+                    <div class="terminal-output">
+    可用命令:
+      help     - 显示帮助信息
+      about    - 显示系统信息
+      clear    - 清空终端屏幕
+      time     - 显示当前时间
+      theme    - 切换主题 (blue/red)
+      version  - 显示版本信息
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">admin@angelcrystal:~$</span>
+                        <span class="terminal-input" id="terminalInput" contenteditable="true"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1116,10 +1275,10 @@
                 'nav.home': '主页',
                 'nav.features': '功能库',
                 'nav.logs': '日志',
-                'nav.about': '关于',
+                'nav.about': '终端',
                 'nav.settings': '设置',
                 'intro.title': 'AngelCrystal',
-                'intro.version': '释放版本：1.35.112082',
+                'intro.version': '释放版本：1.52.4001.26',
                 'intro.ftVersion': 'ACGT版本：1.0.0',
                 'intro.note': '该代码仅供参考，如果有意见请在Gitee或Github中提出问题',
                 'intro.updates': '系统更新:',
@@ -1134,7 +1293,7 @@
                 'logs.system': '系统',
                 'log.1': '系统初始化完成，所有模块运行正常。',
                 'log.2': '安全检查通过，未发现威胁。',
-                'log.3': '用户界面更新至v1.35.0版本。',
+                'log.3': '用户界面更新至v1.52.4版本。',
                 'log.bgChanged': '背景已更改为: ',
                 'settings.title': '系统设置',
                 'settings.theme': '当前主题：',
@@ -1175,7 +1334,7 @@
                 'feature.resetSuccess': '功能库配置已重置为默认设置！',
                 'lang.switchLog': '系统语言已切换至: ',
                 'about.title': '关于 AngelCrystal',
-                'about.version': '当前版本：1.35.112082.02',
+                'about.version': '当前版本：1.52.4001.26',
                 'about.desc': 'AngelCrystal 是一个网页UI，专为高效管理和控制设计。',
                 'about.developers': '开发团队',
                 'about.dev1': 'UI设计，负责核心模块开发和系统集成',
@@ -1204,10 +1363,10 @@
                 'nav.home': 'Home',
                 'nav.features': 'Features',
                 'nav.logs': 'Logs',
-                'nav.about': 'About',
+                'nav.about': 'terminal',
                 'nav.settings': 'Settings',
                 'intro.title': '',
-                'intro.version': 'Release Version: 1.35.112082',
+                'intro.version': 'Release Version: 1.52.4001.26',
                 'intro.ftVersion': 'AGUI Version: 1.0.0',
                 'intro.note': 'This code is for reference only. Please submit issues on Gitee or Github',
                 'intro.updates': 'System Updates:',
@@ -1263,7 +1422,7 @@
                 'feature.resetSuccess': 'Feature configuration reset to default!',
                 'lang.switchLog': 'System language switched to: ',
                 'about.title': 'About AngelCrystal',
-                'about.version': 'Current Version: 1.35.112082.02',
+                'about.version': 'Current Version: 1.52.4001.26',
                 'about.desc': 'AngelCrystal is an advanced management system designed for efficient control and administration.',
                 'about.developers': 'Development Team',
                 'about.dev1': 'UI Designer, responsible for core module development and system integration',
@@ -1317,10 +1476,13 @@
                 document.getElementById("mainPanel").style.display = "block";
                 initParticles();
                 startClock();
+                startBigClock();
+                updateGreeting();
                 loadFeatureConfig();
                 loadLanguage();
                 loadBackground();
                 renderFeatureGrid();
+                setupTerminal();
             } else {
                 btn.innerHTML = langPack[currentLang]['login.accessDenied'];
                 btn.style.background = "#d90000";
@@ -1470,6 +1632,57 @@
             }
             updateTime();
             setInterval(updateTime, 1000);
+        }
+        
+        // 大时钟
+        function startBigClock() {
+            const bigClock = document.getElementById('bigClock');
+            const bigDate = document.getElementById('bigDate');
+            
+            function updateBigClock() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                
+                bigClock.textContent = `${hours}:${minutes}:${seconds}`;
+                
+                // 更新日期
+                const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const weekday = weekdays[now.getDay()];
+                
+                bigDate.textContent = `${year}年${month}月${day}日 ${weekday}`;
+            }
+            
+            updateBigClock();
+            setInterval(updateBigClock, 1000);
+        }
+        
+        // 问候语
+        function updateGreeting() {
+            const greeting = document.getElementById('greeting');
+            const now = new Date();
+            const hour = now.getHours();
+            
+            let greetingText = '';
+            
+            if (hour >= 5 && hour < 12) {
+                greetingText = '早上好';
+            } else if (hour >= 12 && hour < 14) {
+                greetingText = '中午好';
+            } else if (hour >= 14 && hour < 18) {
+                greetingText = '下午好';
+            } else if (hour >= 18 && hour < 24) {
+                greetingText = '晚上好';
+            } else {
+                greetingText = '夜深了';
+            }
+            
+            greetingText += '，管理员';
+            greeting.textContent = greetingText;
         }
 
         // 灰色粒子背景
@@ -1641,7 +1854,7 @@
                 
                 // 添加主题切换日志
                 const now = new Date();
-                const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+                const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '极')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
                 
                 const themeName = langPack[currentLang]['settings.blueTheme'];
                 const logContent = langPack[currentLang]['log.3'].replace('v1.4.0', themeName);
@@ -1776,9 +1989,9 @@
             
             // 添加日志
             const now = new Date();
-            const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '极')}:${String(now.getMinutes()).padStart(2, '0')}:${极(now.getSeconds()).padStart(2, '0')}`;
             
-            const logContent = langPack[currentLang]['log.3'].replace('v1.4.0', langPack[currentLang]['feature.saveSuccess']);
+            const log极 = langPack[currentLang]['log.3'].replace('v1.4.0', langPack[currentLang]['feature.saveSuccess']);
             addLogEntry(timeString, logContent);
         }
         
@@ -1809,7 +2022,7 @@
                 
                 // 创建图标
                 const icon = document.createElement('div');
-                icon.className = 'hologram-icon';
+                icon.className = '极ogram-icon';
                 
                 // 创建功能名称
                 const name = document.createElement('div');
@@ -1870,8 +2083,169 @@
             if (content.classList.contains('collapsed')) {
                 toggleIcon.textContent = '▶';
             } else {
-                toggleIcon.textContent = '▼';
+                toggleIcon.text极 = '▼';
             }
+        }
+        
+        // 终端功能
+        function setupTerminal() {
+            const terminalInput = document.getElementById('terminalInput');
+            const terminalBody = document.getElementById('terminalBody');
+            
+            terminalInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const command = terminalInput.textContent.trim();
+                    
+                    // 添加命令到终端
+                    addTerminalLine(`admin@angelcrystal:~$ ${command}`);
+                    
+                    // 处理命令
+                    processCommand(command);
+                    
+                    // 清空输入
+                    terminalInput.textContent = '';
+                    
+                    // 滚动到底部
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }
+            });
+            
+            // 聚焦到终端输入
+            terminalInput.focus();
+        }
+        
+        function addTerminalLine(text, isCommand = false) {
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            
+            if (isCommand) {
+                line.innerHTML = `<span class="terminal-prompt">admin@angelcrystal:~$</span> <span class="terminal-command">${text}</span>`;
+            } else {
+                line.innerHTML = text;
+            }
+            
+            document.getElementById('terminalBody').appendChild(line);
+        }
+        
+        function addTerminalOutput(text, type = 'normal') {
+            const output = document.createElement('div');
+            output.className = `terminal-output ${type === 'error' ? 'terminal-error' : type === 'success' ? 'terminal-success' : ''}`;
+            output.textContent = text;
+            
+            document.getElementById('terminalBody').appendChild(output);
+        }
+        
+        function processCommand(command) {
+            command = command.toLowerCase();
+            
+            switch(command) {
+                case 'help':
+                    addTerminalOutput(`可用命令:
+  help     - 显示帮助信息
+  about    - 显示系统信息
+  clear    - 清空终端屏幕
+  time     - 显示当前时间
+  theme    - 切换主题 (blue/red)
+  version  - 显示版本信息`);
+                    break;
+                    
+                case 'about':
+                    addTerminalOutput(`AngelCrystal Terminal v1.0
+                    
+AngelCrystal 是一个高级管理系统，专为高效控制和管理设计。
+该系统采用先进的Web技术构建，提供直观的用户界面和强大的功能。
+
+开发团队:
+  - TheronVaux: UI设计，核心模块开发和系统集成
+  - InfinitySKY: UI/UX设计，用户界面和交互体验
+  - SHENGYUE: 后端开发工程师
+
+版本: 1.35.112082.02
+许可: MIT 开源协议`);
+                    break;
+                    
+                case 'clear':
+                    const terminalBody = document.getElementById('terminalBody');
+                    while (terminalBody.children.length > 1) {
+                        terminalBody.removeChild(terminalBody.lastChild);
+                    }
+                    break;
+                    
+                case 'time':
+                    const now = new Date();
+                    addTerminalOutput(now.toLocaleString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        weekday: 'long'
+                    }));
+                    break;
+                    
+                case 'theme blue':
+                    switchTheme('blue');
+                    addTerminalOutput('主题已切换为蓝色主题', 'success');
+                    break;
+                    
+                case 'theme red':
+                    switchTheme('red');
+                    addTerminalOutput('主题已切换为红色主题', 'success');
+                    break;
+                    
+                case 'version':
+                    addTerminalOutput('AngelCrystal v1.35.112082.02');
+                    break;
+                    
+                case '':
+                    // 空命令，不做任何事
+                    break;
+                    
+                default:
+                    addTerminalOutput(`命令未找到: ${command}。输入 'help' 查看可用命令。`, 'error');
+            }
+            
+            // 添加新的输入行
+            const inputLine = document.createElement('div');
+            inputLine.className = 'terminal-line';
+            inputLine.innerHTML = '<span class="terminal-prompt">admin@angelcrystal:~$</span> <span class="terminal-input" id="terminalInput" contenteditable="true"></span>';
+            
+            document.getElementById('terminalBody').appendChild(inputLine);
+            
+            // 设置焦点到新的输入
+            const newInput = document.getElementById('terminalInput');
+            newInput.focus();
+            
+            // 移除旧的输入行ID
+            const oldInput = document.getElementById('terminalInput');
+            if (oldInput) {
+                oldInput.removeAttribute('id');
+            }
+            
+            // 给新的输入行设置ID
+            newInput.id = 'terminalInput';
+            
+            // 添加事件监听器
+            newInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const command = newInput.textContent.trim();
+                    
+                    // 添加命令到终端
+                    addTerminalLine(`admin@angelcrystal:~$ ${command}`, true);
+                    
+                    // 处理命令
+                    processCommand(command);
+                    
+                    // 清空输入
+                    newInput.textContent = '';
+                    
+                    // 滚动到底部
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }
+            });
         }
     </script>
 </body>
