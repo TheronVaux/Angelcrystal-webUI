@@ -33,8 +33,7 @@ Entrance：
 
 You'll need a browser and then get the build code
 
-    Build：https://github.com/TheronVaux/Angelcrystal-webUI/tree/33a48a2fc72899ebf94b3c74a9f2faa7a8dbdb2e/HTML/build
-    ACGT/AGUI：https://github.com/TheronVaux/Angelcrystal-webUI/tree/fix_ACGT%2FAGUI/HTML%2Fbuild
+    [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
 
 ---
 
