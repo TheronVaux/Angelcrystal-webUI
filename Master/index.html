@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Angel Crystal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <canvas id="particles"></canvas>
+
+    <!-- 登录界面 -->
+    <div class="login-container" id="loginPanel">
+        <div class="hologram-line"></div>
+        <h2 style="text-align: center; margin-bottom: 30px;" data-lang-key="login.title">AngelCrystal</h2>
+        <div class="input-field">
+            <label data-lang-key="login.adminId">账号ID:</label>
+            <input type="text" id="adminId" class="neon-input" placeholder="输入管理员ID" data-lang-key-placeholder="login.adminPlaceholder">
+        </div>
+        <div class="input-field">
+            <label data-lang-key="login.password">账号密码:</label> 
+            <input type="password" id="password" class="neon-input" placeholder="输入密码" data-lang-key-placeholder="login.passwordPlaceholder">
+        </div>
+        <button class="cyber-button" onclick="checkLogin()" data-lang-key="login.accessBtn">ACCESS GRANTED</button>
+    </div>
+
+    <!-- 主界面 -->
+    <div class="main-ui" id="mainPanel">
+        <div class="status-bar">
+            <div class="system-info">
+                <span data-lang-key="status.user">▼ 连接用户: Administators</span>
+                <span style="margin: 0 30px;" data-lang-key="status.connection">▼ 连接状态: SECURED</span>
+                <span style="margin: 0 30px;" data-lang-key="status.permission">▼ 访问权限: 全局</span>
+                <span data-lang-key="status.time">▼ 系统时间: <span id="timeDisplay">11:45:14</span></span>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button active" onclick="switchPage('intro')" data-lang-key="nav.home">主页</button>
+                <button class="nav-button" onclick="switchPage('features')" data-lang-key="nav.features">功能库</button>
+                <button class="nav-button" onclick="switchPage('logs')" data-lang-key="nav.logs">日志</button>
+                <button class="nav-button" onclick="switchPage('about')" data-lang-key="nav.about">关于</button>
+                <button class="nav-button" onclick="switchPage('settings')" data-lang-key="nav.settings">设置</button>
+            </div>
+        </div>
+        
+        <!-- 介绍页面 -->
+        <div class="page-content" id="introPage">
+            <h3 style="text-align: center; margin-bottom: 30px;" data-lang-key="intro.title">AngelCrystal</h3>
+            <div class="version-info">
+                <p style="margin-bottom: 10px; line-height: 1.6;">
+                    <strong data-lang-key="intro.version">释放版本：1.35.112082.02</strong><br>
+                    <strong data-lang-key="intro.ftVersion">TimonDessau</strong>
+                </p>
+                <p style="line-height: 1.6;" data-lang-key="intro.note">该代码仅供参考，如果有意见请在Gitee或Github中提出问题</p>
+            </div>
+            
+            <div class="system-update">
+                <h4 data-lang-key="intro.updates">更新内容:</h4>
+                <p style="margin-top: 10px;" data-lang-key="update.1">• 新增主题切换功能（蓝色/红色主题）</p>
+                <p data-lang-key="update.2">• 添加设置页面用于主题管理</p>
+                <p data-lang-key="update.3">• 优化UI界面和交互体验</p>
+                <p data-lang-key="update.4">• 新增功能库链接自定义配置功能</p>
+                <p data-lang-key="update.5">• 新增多语言支持（中文/英文）</p>
+                <p data-lang-key="update.6">• 新增"关于"界面展示开发者信息</p>
+                <p data-lang-key="update.7">• 功能库扩展至16个功能模块</p>
+                <p data-lang-key="update.8">• 日志系统新增更新日志分类</p>
+            </div>
+        </div>
+        
+        <!-- 功能库页面 -->
+        <div class="page-content" id="featuresPage" style="display: none;">
+            <h3 class="section-title" data-lang-key="features.title">功能库</h3>
+            <div class="icon-grid" id="featuresGrid">
+                <!-- 功能库图标将在这里动态生成 -->
+            </div>
+            <div style="margin-top: 30px; text-align: center;">
+                <p data-lang-key="features.github">访问开发者GitHub仓库获取更多资源:</p>
+                <a href="https://www.github.com/TheronVaux/Angelcrystal-webUI/" class="github-link" target="_blank">
+                    https://www.github.com/TheronVaux/Angelcrystal-webUI/
+                </a>
+            </div>
+        </div>
+        
+        <!-- 日志页面 -->
+        <div class="page-content" id="logsPage" style="display: none;">
+            <h3 class="section-title" data-lang-key="logs.title">系统日志</h3>
+            
+            <div class="log-tabs">
+                <div class="log-tab active" onclick="switchLogTab('userLogs')" data-lang-key="logs.userLogs">用户日志</div>
+                <div class="log-tab" onclick="switchLogTab('updateLogs')" data-lang-key="logs.updateLogs">更新日志</div>
+            </div>
+            
+            <!-- 用户日志 -->
+            <div class="log-tab-content active" id="userLogsTab">
+                <div class="log-input-container">
+                    <input type="text" id="logInput" class="log-input" placeholder="输入日志内容..." data-lang-key-placeholder="logs.placeholder">
+                    <button class="cyber-button" style="width: auto; padding: 0 20px;" onclick="addLog()" data-lang-key="logs.addBtn">添加日志</button>
+                </div>
+                
+                <div class="log-list" id="logList">
+                    <!-- 日志条目将在这里动态生成 -->
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <strong data-lang-key="logs.admin">管理员</strong>
+                            <span class="log-time">2025-07-19 04:00:00</span>
+                        </div>
+                        <div class="log-content">
+                            <span data-lang-key="log.1">系统初始化完成，所有模块运行正常。</span>
+                        </div>
+                        <div class="delete-log" onclick="deleteLog(event)">×</div>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <strong data-lang-key="logs.admin">管理员</strong>
+                            <span class="log-time">2025-07-19 12:00:00</span>
+                        </div>
+                        <div class="log-content">
+                            <span data-lang-key="log.2">安全检查通过，未发现威胁。</span>
+                        </div>
+                        <div class="delete-log" onclick="deleteLog(event)">×</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更新日志 -->
+            <div class="log-tab-content" id="updateLogsTab">
+                <div class="log-list" id="updateLogList">
+                    <div class="update-log-entry">
+                        <div class="log-header">
+                            <strong data-lang-key="logs.system">系统</strong>
+                            <span class="log-time">2025-07-20 09:30:00</span>
+                        </div>
+                        <div class="log-content">
+                            <span data-lang-key="update.log.1">• 新增"关于"页面</span><br>
+                            <span data-lang-key="update.log.2">• 功能库扩展至16个模块</span><br>
+                            <span data-lang-key="update.log.3">• 日志系统新增更新日志分类</span>
+                        </div>
+                    </div>
+                    
+                    <div class="update-log-entry">
+                        <div class="log-header">
+                            <strong data-lang-key="logs.system">系统</strong>
+                            <span class="log-time">2025-07-19 12:00:00</span>
+                        </div>
+                        <div class="log-content">
+                            <span data-lang-key="update.log.4">• 新增主题切换功能</span><br>
+                            <span data-lang-key="update.log.5">• 添加多语言支持</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 关于页面 -->
+        <div class="page-content" id="aboutPage" style="display: none;">
+            <h3 class="section-title" data-lang-key="about.title">关于 AngelCrystal</h3>
+            
+            <div class="version-info">
+                <p style="margin-bottom: 10px; line-height: 1.6;">
+                    <strong data-lang-key="about.version">当前版本：1.35.112082.02</strong><br>
+                    <span data-lang-key="about.desc">AngelCrystal 是一个网页UI。</span>
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <h4 style="margin-bottom: 20px; color: var(--secondary-color);" data-lang-key="about.developers">开发团队</h4>
+                
+                <div class="developer-card">
+                    <h4>TheronVaux</h4>
+                    <p data-lang-key="about.dev1">UI设计，负责核心模块开发和系统集成</p>
+                </div>
+                
+                <div class="developer-card">
+                    <h4>InfinitySKY</h4>
+                    <p data-lang-key="about.dev2">UI/UX设计师，负责用户界面和交互体验</p>
+                </div>
+                
+                <div class="developer-card">
+                    <h4>SHENGYUE</h4>
+                    <p data-lang-key="about.dev3">后端开发工程师，fw</p>
+                </div>
+                
+                <div class="system-update" style="margin-top: 30px;">
+                    <h4 data-lang-key="about.license">许可协议</h4>
+                    <p style="margin-top: 10px;" data-lang-key="about.licenseText">
+                        AngelCrystal 遵循 MIT 开源协议。您可以自由使用、修改和分发本软件，但必须保留原始版权声明。 
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置页面 -->
+        <div class="page-content settings-page" id="settingsPage">
+            <h3 class="section-title" data-lang-key="settings.title">系统设置</h3>
+            
+            <div class="version-info">
+                <p style="margin-bottom: 10px; line-height: 1.6;">
+                    <strong data-lang-key="settings.theme">当前主题：<span id="currentTheme">蓝色主题</span></strong><br>
+                    <span data-lang-key="settings.themeDesc">选择您偏好的界面主题</span>
+                </p>
+            </div>
+            
+            <h4 style="margin: 30px 0 15px; color: var(--primary-color);" data-lang-key="settings.themeSelect">主题选择</h4>
+            <div class="theme-selector">
+                <div class="theme-option active" onclick="switchTheme('blue')" id="blueThemeOption">
+                    <div class="theme-preview blue-theme-preview">
+                        <div style="color: #00f7ff; font-size: 24px;">BLUE</div>
+                    </div>
+                    <div class="theme-name" data-lang-key="settings.blueTheme">蓝色主题</div>
+                    <p style="margin-top: 10px; font-size: 0.9em;" data-lang-key="settings.blueDesc">默认Sapphire风格</p>
+                </div>
+                
+                <div class="theme-option" onclick="switchTheme('red')" id="redThemeOption">
+                    <div class="theme-preview red-theme-preview">
+                        <div style="color: #ff003c; font-size: 24px;">RED</div>
+                    </div>
+                    <div class="theme-name" data-lang-key="settings.redTheme">红色主题</div>
+                    <p style="margin-top: 10px; font-size: 0.9em;" data-lang-key="settings.redDesc">暗黑Angel风格</p>
+                </div>
+            </div>
+            
+            <!-- 背景选择区域 -->
+            <h4 style="margin: 30px 0 15px; color: var(--primary-color);" data-lang-key="settings.background">背景设置</h4>
+            <div class="background-selector" id="backgroundSelector">
+                <div class="background-option active" onclick="switchBackground('none')" id="defaultBgOption">
+                    <div class="background-preview default-preview">
+                        <div style="color: var(--primary-color);" data-lang-key="settings.defaultBg">默认背景</div>
+                    </div>
+                    <div class="background-name" data-lang-key="settings.defaultBg">默认背景</div>
+                </div>
+                
+                <div class="background-option" onclick="switchBackground('url(https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1350&q=80)')" id="spaceBgOption">
+                    <div class="background-preview space-preview">
+                        <div style="color: white; text-shadow: 0 0 5px black;" data-lang-key="settings.spaceBg">星空背景</div>
+                    </div>
+                    <div class="background-name" data-lang-key="settings.spaceBg">星空背景</div>
+                </div>
+                
+                <div class="background-option" onclick="switchBackground('url(https://images.unsplash.com/photo-1516245834216-c4e5e3aff77e?auto=format&fit=crop&w=1350&q=80)')" id="cyberBgOption">
+                    <div class="background-preview cyber-preview">
+                        <div style="color: white; text-shadow: 0 0 5px black;" data-lang-key="settings.cyberBg">赛博背景</div>
+                    </div>
+                    <div class="background-name" data-lang-key="settings.cyberBg">赛博背景</div>
+                </div>
+                
+                <div class="background-option" onclick="document.getElementById('bgUpload').click()" id="customBgOption">
+                    <div class="background-preview" style="border: 2px dashed var(--primary-color); display: flex; align-items: center; justify-content: center;">
+                        <span data-lang-key="settings.uploadBg">上传背景</span>
+                        <input type="file" id="bgUpload" accept="image/*" style="display: none;" onchange="uploadBackground(event)">
+                    </div>
+                    <div class="background-name" data-lang-key="settings.uploadBg">上传背景</div>
+                </div>
+            </div>
+            
+            <!-- 语言选择区域 -->
+            <h4 style="margin: 30px 0 15px; color: var(--primary-color);" data-lang-key="settings.language">语言选择</h4>
+            <div class="language-selector">
+                <div class="lang-option active" onclick="switchLanguage('zh-CN')" id="zhOption">
+                    <div class="lang-preview zh-preview">
+                        <div style="color: #00f7ff; font-size: 24px;">中文</div>
+                    </div>
+                    <div class="lang-name">简体中文</div>
+                    <p style="margin-top: 10px; font-size: 0.9em;" data-lang-key="settings.zhDesc">系统默认语言</p>
+                </div>
+                
+                <div class="lang-option" onclick="switchLanguage('en')" id="enOption">
+                    <div class="lang-preview en-preview">
+                        <div style="color: #ff8a00; font-size: 24px;">English</div>
+                    </div>
+                    <div class="lang-name">English</div>
+                    <p style="margin-top: 10px; font-size: 0.9em;" data-lang-key="settings.enDesc">英语</p>
+                </div>
+            </div>
+            
+            <!-- 自定义功能库配置区域 -->
+            <div class="feature-config">
+                <div class="feature-header" onclick="toggleFeatureConfig()">
+                    <h4 data-lang-key="settings.customFeatures">自定义功能库链接</h4>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                
+                <div class="feature-config-content" id="featureConfigContent">
+                    <div id="featureConfigContainer">
+                        <!-- 功能配置项将在这里动态生成 -->
+                    </div>
+                    
+                    <div class="feature-actions">
+                        <button class="reset-config" onclick="resetFeatureConfig()" data-lang-key="settings.resetBtn">重置配置</button>
+                        <button class="save-config" onclick="saveFeatureConfig()" data-lang-key="settings.saveBtn">保存配置</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="system-update">
+                <h4 data-lang-key="settings.other">其他设置:</h4>
+                <p style="margin-top: 10px;" data-lang-key="settings.lang">• 界面语言：简体中文</p>
+                <p data-lang-key="settings.dateFormat">• 日期格式：YYYY-MM-DD</p>
+                <p data-lang-key="settings.timeFormat">• 时间显示：24小时制</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
