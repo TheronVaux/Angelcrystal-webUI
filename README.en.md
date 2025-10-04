@@ -33,7 +33,8 @@ Entrance：
 
 You'll need a browser and then get the build code
 
-    [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
+* [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
+* [Discussion group](https://qm.qq.com/q/HAr2hEWmk2)
 
 ---
 
