@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
+![IMG_20251007_134833](https://github.com/user-attachments/assets/013870be-6517-4d81-8d2e-85052679fd52)
 
 See more details
 [wiki](https://github.com/TheronVaux/Angelcrystal-webUI/wiki)
@@ -22,10 +23,10 @@ In addition, you can clone this repository to make your own version and publish 
 
 Entrance：
 
-* Dike [official website](https://angelcrystal-code.mysxl.cn)
-* Feedback [Cafe](https://pd.qq.com/s/a6g5xr5bg?b=5)
-* Repository [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
-* Author [QQ](https://qm.qq.com/q/lXDyWCMaOs)
+* [official website](https://angelcrystal-code.mysxl.cn)
+* [Cafe](https://pd.qq.com/s/a6g5xr5bg?b=5)
+* [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
+* [QQ](https://qm.qq.com/q/lXDyWCMaOs)
 
 ----
 
@@ -33,8 +34,8 @@ Entrance：
 
 You'll need a browser and then get the build code
 
-    Build：https://github.com/TheronVaux/Angelcrystal-webUI/tree/33a48a2fc72899ebf94b3c74a9f2faa7a8dbdb2e/HTML/build
-    ACGT：https://github.com/TheronVaux/Angelcrystal-webUI/tree/fix_ACGT%2FAGUI/HTML%2Fbuild
+* [ACUI for experience only](https://github.com/TheronVaux/Angelcrystal-webUI/tree/011be204efc66e868be9c1efb0f65af48e672294/HTML)
+* [Expandable native ACUX](https://github.com/TheronVaux/Angelcrystal-webUI/tree/011be204efc66e868be9c1efb0f65af48e672294/Master)
 
 ---
 
