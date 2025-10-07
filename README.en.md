@@ -22,10 +22,10 @@ In addition, you can clone this repository to make your own version and publish 
 
 Entrance：
 
-* Dike [official website](https://angelcrystal-code.mysxl.cn)
-* Feedback [Cafe](https://pd.qq.com/s/a6g5xr5bg?b=5)
-* Repository [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
-* Author [QQ](https://qm.qq.com/q/lXDyWCMaOs)
+* [official website](https://angelcrystal-code.mysxl.cn)
+* [Cafe](https://pd.qq.com/s/a6g5xr5bg?b=5)
+* [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
+* [QQ](https://qm.qq.com/q/lXDyWCMaOs)
 
 ----
 
