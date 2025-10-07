@@ -1,4 +1,4 @@
-<h1 align="center">ACGT/AGUI Design language</h1>
+<h1 align="center">Open-source native ACUX</h1>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/TheronVaux/Angelcrystal-webUI?style=social)](https://github.com/TheronVaux/Angelcrystal-webUI/stargazers)
