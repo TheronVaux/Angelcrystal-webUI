@@ -21,7 +21,6 @@ See more details
 > Current latest version：1.52/2.1.4
 
 >This web project only provides the initial code, this code has a 'function library' for function expansion, the initial code is not perfect, I hope to understand more in the future, details can be found in the project wiki
-
 In addition, you can clone this repository to make your own version and publish it!!
 
 ### About
