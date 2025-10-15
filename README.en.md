@@ -30,7 +30,7 @@ Entrance：
 * [official website](https://angelcrystal-code.mysxl.cn)
 * [Cafe](https://pd.qq.com/s/a6g5xr5bg?b=5)
 * [Cloud Disk](https://www.123865.com/s/YNr5Vv-nMebd)
-* [QQ](https://qm.qq.com/q/lXDyWCMaOs)
+* [QQ](https://qm.qq.com/q/E8br7S2R22)
 
 ----
 
