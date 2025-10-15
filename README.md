@@ -38,7 +38,7 @@
 会需要一个浏览器，然后获取构建代码
 
 * [云盘](https://www.123865.com/s/YNr5Vv-nMebd)
-* [群](https://qm.qq.com/q/HAr2hEWmk2)
+* [群](https://qm.qq.com/q/E8br7S2R22)
 
 ---
 
