@@ -43,7 +43,7 @@ You'll need a browser and then get the build code
 
 ---
 
-Disclaimer: FireTide has ceased maintenance, please do not mention the project to the developers, thank you
+Disclaimer: FireTide has ceased maintenance, but you can mention the project to the developers.
 
 Feel free to come back anytime! ⭐ Your **Star** is the motivation for my updates~
 # By LLTheronVaux.2007
