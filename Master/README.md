@@ -18,4 +18,4 @@
 * 更新缓慢
 * 拓展性低
 
-# By LLTheronVaux.2007
+# By THERON_VAUX
